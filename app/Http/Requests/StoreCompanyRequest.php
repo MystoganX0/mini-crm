@@ -19,7 +19,8 @@ class StoreCompanyRequest extends FormRequest
                 'nullable',
                 'string',
                 'max:255',
-                'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+                'email:rfc,dns',
+                'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10}$/',
             ],
             'logo' => [
                 'nullable',
@@ -35,6 +36,7 @@ class StoreCompanyRequest extends FormRequest
     public function messages(): array
     {
         return [
+            'email.email' => 'The official email domain does not exist or is invalid.',
             'email.regex' => 'The official email must be a valid email address (e.g., contact@company.com).',
         ];
     }

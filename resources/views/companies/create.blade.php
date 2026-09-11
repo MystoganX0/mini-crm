@@ -62,8 +62,8 @@
                             id="email"
                             value="{{ old('email') }}"
                             placeholder="contact@company.com"
-                            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-                            title="Please enter a valid email address (e.g. contact@company.com)"
+                            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,6}"
+                            title="Please enter a valid email address with a valid domain (e.g. contact@company.com)"
                             class="w-full text-sm rounded-xl border-gray-300 focus:border-[#1B4D3E] focus:ring focus:ring-[#1B4D3E]/20 transition shadow-2xs"
                         >
                     </div>

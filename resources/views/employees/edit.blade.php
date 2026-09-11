@@ -46,6 +46,9 @@
                             id="first_name"
                             value="{{ old('first_name', $employee->first_name) }}"
                             required
+                            placeholder="e.g. John"
+                            pattern="^[A-Za-z\s'\-]+$"
+                            title="First name must not contain numbers or special characters."
                             class="w-full text-sm rounded-xl border-gray-300 focus:border-[#1B4D3E] focus:ring focus:ring-[#1B4D3E]/20 transition shadow-2xs"
                         >
                     </div>
@@ -60,6 +63,9 @@
                             id="last_name"
                             value="{{ old('last_name', $employee->last_name) }}"
                             required
+                            placeholder="e.g. Doe"
+                            pattern="^[A-Za-z\s'\-]+$"
+                            title="Last name must not contain numbers or special characters."
                             class="w-full text-sm rounded-xl border-gray-300 focus:border-[#1B4D3E] focus:ring focus:ring-[#1B4D3E]/20 transition shadow-2xs"
                         >
                     </div>
@@ -98,9 +104,9 @@
                             name="email"
                             id="email"
                             value="{{ old('email', $employee->email) }}"
-                            placeholder="john.doe@company.com"
-                            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}"
-                            title="Please enter a valid email address (e.g. john.doe@company.com)"
+                            placeholder="example@company.com"
+                            pattern="[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,6}"
+                            title="Please enter a valid email address with a valid domain (e.g. name@company.com)"
                             class="w-full text-sm rounded-xl border-gray-300 focus:border-[#1B4D3E] focus:ring focus:ring-[#1B4D3E]/20 transition shadow-2xs"
                         >
                     </div>
@@ -110,11 +116,13 @@
                             Phone Number
                         </label>
                         <input
-                            type="text"
+                            type="tel"
                             name="phone"
                             id="phone"
                             value="{{ old('phone', $employee->phone) }}"
                             placeholder="e.g. 0187858049"
+                            pattern="^(\+?60|0)[0-9]{8,11}$"
+                            title="Please enter a valid phone number (e.g. 0187858049)"
                             class="w-full text-sm rounded-xl border-gray-300 focus:border-[#1B4D3E] focus:ring focus:ring-[#1B4D3E]/20 transition shadow-2xs"
                         >
                     </div>
