@@ -1,100 +1,138 @@
-<nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
-    <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between h-16">
-            <div class="flex">
-                <!-- Logo -->
-                <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800" />
+<aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'"
+    class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200/80 transition-transform duration-200 ease-in-out flex flex-col justify-between">
+    <!-- Top Section -->
+    <div>
+        <!-- Brand Header -->
+        <div class="h-16 flex items-center px-6 border-b border-gray-100">
+            <a href="{{ route('dashboard') }}" class="flex items-center gap-2.5 group">
+                <div
+                    class="w-8 h-8 rounded-lg bg-[#1B4D3E] flex items-center justify-center text-white shadow-sm transition-transform group-hover:scale-105 overflow-hidden">
+                    <img src="{{ asset('assests/logo.png') }}" alt="FNXperts Logo" class="w-full h-full object-cover">
+                </div>
+                <span class="font-bold text-lg tracking-tight text-gray-900">FNXperts</span>
+            </a>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="px-3 py-2 space-y-6">
+            <div>
+                <p class="px-3 mb-2 text-[11px] font-bold tracking-wider text-gray-400 uppercase">
+                    Workspace
+                </p>
+                <nav class="space-y-1">
+                    <!-- Dashboard -->
+                    <a href="{{ route('dashboard') }}"
+                        class="group flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-xl transition {{ request()->routeIs('dashboard') ? 'bg-[#EAF5F1] text-[#1B4D3E] font-semibold' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/70' }}">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-4 h-4 {{ request()->routeIs('dashboard') ? 'text-[#1B4D3E]' : 'text-gray-400 group-hover:text-gray-600' }}"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="7" height="9" x="3" y="3" rx="1" />
+                                <rect width="7" height="5" x="14" y="3" rx="1" />
+                                <rect width="7" height="9" x="14" y="12" rx="1" />
+                                <rect width="7" height="5" x="3" y="16" rx="1" />
+                            </svg>
+                            <span>Dashboard</span>
+                        </div>
+                        @if(request()->routeIs('dashboard'))
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#1B4D3E]"></span>
+                        @endif
                     </a>
-                </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+                    <!-- Companies -->
+                    <a href="{{ route('companies.index') }}"
+                        class="group flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-xl transition {{ request()->routeIs('companies.*') ? 'bg-[#EAF5F1] text-[#1B4D3E] font-semibold' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/70' }}">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-4 h-4 {{ request()->routeIs('companies.*') ? 'text-[#1B4D3E]' : 'text-gray-400 group-hover:text-gray-600' }}"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
+                                <path d="M6 12H4a2 2 0 0 0-2 2v8h4" />
+                                <path d="M18 9h2a2 2 0 0 1 2 2v11h-4" />
+                                <path d="M10 6h4" />
+                                <path d="M10 10h4" />
+                                <path d="M10 14h4" />
+                                <path d="M10 18h4" />
+                            </svg>
+                            <span>Companies</span>
+                        </div>
+                        @if(request()->routeIs('companies.*'))
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#1B4D3E]"></span>
+                        @endif
+                    </a>
+
+                    <!-- Employees -->
+                    <a href="{{ route('employees.index') }}"
+                        class="group flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-xl transition {{ request()->routeIs('employees.*') ? 'bg-[#EAF5F1] text-[#1B4D3E] font-semibold' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/70' }}">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-4 h-4 {{ request()->routeIs('employees.*') ? 'text-[#1B4D3E]' : 'text-gray-400 group-hover:text-gray-600' }}"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                                <circle cx="9" cy="7" r="4" />
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                            </svg>
+                            <span>Employees</span>
+                        </div>
+                        @if(request()->routeIs('employees.*'))
+                            <span class="w-1.5 h-1.5 rounded-full bg-[#1B4D3E]"></span>
+                        @endif
+                    </a>
+                </nav>
+            </div>
+
+            <!-- General Settings Section -->
+            <div>
+                <p class="px-3 mb-2 text-[11px] font-bold tracking-wider text-gray-400 uppercase">
+                    Settings
+                </p>
+                <nav class="space-y-1">
+                    <a href="{{ route('profile.edit') }}"
+                        class="group flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-xl transition {{ request()->routeIs('profile.*') ? 'bg-[#EAF5F1] text-[#1B4D3E] font-semibold' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/70' }}">
+                        <div class="flex items-center gap-3">
+                            <svg class="w-4 h-4 {{ request()->routeIs('profile.*') ? 'text-[#1B4D3E]' : 'text-gray-400 group-hover:text-gray-600' }}"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="3" />
+                                <path
+                                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                            </svg>
+                            <span>Profile & Account</span>
+                        </div>
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- User Profile Footer -->
+    <div class="p-3 border-t border-gray-100 bg-[#FCFDFB]">
+        <div class="flex items-center justify-between p-2 rounded-xl hover:bg-gray-100/70 transition">
+            <div class="flex items-center gap-2.5 min-w-0">
+                <div
+                    class="w-8 h-8 rounded-full bg-[#1B4D3E] text-white flex items-center justify-center font-semibold text-xs shrink-0">
+                    {{ strtoupper(substr(Auth::user()->name ?? 'U', 0, 2)) }}
+                </div>
+                <div class="min-w-0">
+                    <p class="text-xs font-semibold text-gray-900 truncate">{{ Auth::user()->name }}</p>
+                    <p class="text-[11px] text-gray-500 truncate">{{ Auth::user()->email }}</p>
                 </div>
             </div>
 
-            <!-- Settings Dropdown -->
-            <div class="hidden sm:flex sm:items-center sm:ms-6">
-                <x-dropdown align="right" width="48">
-                    <x-slot name="trigger">
-                        <button class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
-
-                            <div class="ms-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button>
-                    </x-slot>
-
-                    <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
-                        </x-dropdown-link>
-
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Log Out') }}
-                            </x-dropdown-link>
-                        </form>
-                    </x-slot>
-                </x-dropdown>
-            </div>
-
-            <!-- Hamburger -->
-            <div class="-me-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                    <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                        <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                        <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            <!-- Logout Form Button -->
+            <form method="POST" action="{{ route('logout') }}" class="shrink-0">
+                @csrf
+                <button type="submit" title="Log Out"
+                    class="p-1.5 text-gray-400 hover:text-red-600 rounded-lg hover:bg-red-50 transition">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" />
+                        <polyline points="16 17 21 12 16 7" />
+                        <line x1="21" x2="9" y1="12" y2="12" />
                     </svg>
                 </button>
-            </div>
+            </form>
         </div>
     </div>
-
-    <!-- Responsive Navigation Menu -->
-    <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
-            </div>
-        </div>
-    </div>
-</nav>
+</aside>

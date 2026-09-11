@@ -15,7 +15,12 @@ class UpdateCompanyRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['nullable', 'email', 'max:255'],
+            'email' => [
+                'nullable',
+                'string',
+                'max:255',
+                'regex:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+            ],
             'logo' => [
                 'nullable',
                 'image',
@@ -24,6 +29,13 @@ class UpdateCompanyRequest extends FormRequest
                 'max:2048',
             ],
             'website' => ['nullable', 'url', 'max:255'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'email.regex' => 'The official email must be a valid email address (e.g., contact@company.com).',
         ];
     }
 }
