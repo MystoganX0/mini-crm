@@ -8,7 +8,6 @@
         }" 
         class="space-y-6 max-w-4xl mx-auto"
     >
-        <!-- Back link -->
         <div>
             <a href="{{ route('employees.index') }}" class="inline-flex items-center gap-1 text-xs font-semibold text-gray-500 hover:text-gray-800 mb-2 transition">
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
@@ -44,9 +43,7 @@
             </div>
         </div>
 
-        <!-- Detail Grid Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <!-- Card 1: Contact Information -->
             <div class="bg-white rounded-2xl border border-gray-200/70 p-6 shadow-2xs space-y-4">
                 <h3 class="font-bold text-sm text-gray-900 border-b border-gray-100 pb-3">Contact Information</h3>
                 
@@ -75,7 +72,6 @@
                 </div>
             </div>
 
-            <!-- Card 2: Company Affiliation -->
             <div class="bg-white rounded-2xl border border-gray-200/70 p-6 shadow-2xs space-y-4">
                 <h3 class="font-bold text-sm text-gray-900 border-b border-gray-100 pb-3">Company Affiliation</h3>
                 
@@ -101,7 +97,6 @@
             </div>
         </div>
 
-        <!-- Delete Confirmation Modal Component -->
         <x-delete-modal />
     </div>
 </x-app-layout>

@@ -1,6 +1,5 @@
 <x-app-layout>
     <div class="space-y-6 max-w-4xl mx-auto">
-        <!-- Header -->
         <div>
             <p class="text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-1">
                 — Account Settings

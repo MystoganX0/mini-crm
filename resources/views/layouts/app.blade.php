@@ -7,20 +7,16 @@
 
         <title>{{ config('app.name', 'FNXperts CRM') }}</title>
 
-        <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
-        <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="h-full font-sans antialiased text-[#1E293B] bg-[#F8F9FA]" x-data="{ sidebarOpen: false }">
         <div class="min-h-screen flex">
-            <!-- Sidebar Navigation -->
             @include('layouts.navigation')
 
-            <!-- Mobile Backdrop Overlay -->
             <div 
                 x-show="sidebarOpen" 
                 @click="sidebarOpen = false"
@@ -34,13 +30,9 @@
                 style="display: none;"
             ></div>
 
-            <!-- Main Content Area -->
             <div class="flex-1 flex flex-col min-w-0 lg:pl-64">
-                <!-- Top Header Bar -->
                 <header class="sticky top-0 z-20 h-16 bg-[#F8F9FA]/90 backdrop-blur border-b border-gray-200/60 px-4 sm:px-8 flex items-center justify-between">
-                    <!-- Left: Mobile Toggle & Breadcrumbs -->
                     <div class="flex items-center gap-4">
-                        <!-- Mobile Hamburger Button -->
                         <button 
                             @click="sidebarOpen = !sidebarOpen" 
                             type="button" 
@@ -51,7 +43,6 @@
                             </svg>
                         </button>
 
-                        <!-- Breadcrumb -->
                         <div class="flex items-center text-xs text-gray-500 font-medium gap-2">
                             <span>Workspace</span>
                             <span class="text-gray-300">/</span>
@@ -71,7 +62,6 @@
                         </div>
                     </div>
 
-                    <!-- Right: Date Indicator & Actions -->
                     <div class="flex items-center gap-4">
 
                         <div class="flex items-center gap-2">
@@ -82,9 +72,7 @@
                     </div>
                 </header>
 
-                <!-- Page Content Body -->
                 <main class="flex-1 px-4 sm:px-8 py-8 max-w-7xl w-full mx-auto space-y-6">
-                    <!-- Global Flash Alerts -->
                     @if (session('success'))
                         <div 
                             x-data="{ show: true }" 

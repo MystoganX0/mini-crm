@@ -8,7 +8,6 @@
         }" 
         class="space-y-8 max-w-5xl mx-auto"
     >
-        <!-- Header / Back Link -->
         <div>
             <a href="{{ route('companies.index') }}" class="inline-flex items-center gap-1 text-xs font-semibold text-gray-500 hover:text-gray-800 mb-2 transition">
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
@@ -64,7 +63,6 @@
             </div>
         </div>
 
-        <!-- Employees List at this Company -->
         <div class="bg-white rounded-2xl border border-gray-200/70 shadow-2xs overflow-hidden">
             <div class="p-4 sm:p-4 border-b border-gray-100 flex items-center justify-between">
                 <div>
@@ -142,7 +140,6 @@
             </div>
         </div>
 
-        <!-- Delete Confirmation Modal Component -->
         <x-delete-modal />
     </div>
 </x-app-layout>

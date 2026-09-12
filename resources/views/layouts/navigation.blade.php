@@ -1,8 +1,6 @@
 <aside :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'"
     class="fixed inset-y-0 left-0 z-40 w-64 bg-white border-r border-gray-200/80 transition-transform duration-200 ease-in-out flex flex-col justify-between">
-    <!-- Top Section -->
     <div>
-        <!-- Brand Header -->
         <div class="h-16 flex items-center px-6 border-b border-gray-100">
             <a href="{{ route('dashboard') }}" class="flex items-center gap-2.5 group">
                 <div
@@ -13,14 +11,12 @@
             </a>
         </div>
 
-        <!-- Navigation Links -->
         <div class="px-3 py-2 space-y-6">
             <div>
                 <p class="px-3 mb-2 text-[11px] font-bold tracking-wider text-gray-400 uppercase">
                     Workspace
                 </p>
                 <nav class="space-y-1">
-                    <!-- Dashboard -->
                     <a href="{{ route('dashboard') }}"
                         class="group flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-xl transition {{ request()->routeIs('dashboard') ? 'bg-[#EAF5F1] text-[#1B4D3E] font-semibold' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/70' }}">
                         <div class="flex items-center gap-3">
@@ -39,7 +35,6 @@
                         @endif
                     </a>
 
-                    <!-- Companies -->
                     <a href="{{ route('companies.index') }}"
                         class="group flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-xl transition {{ request()->routeIs('companies.*') ? 'bg-[#EAF5F1] text-[#1B4D3E] font-semibold' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/70' }}">
                         <div class="flex items-center gap-3">
@@ -61,7 +56,6 @@
                         @endif
                     </a>
 
-                    <!-- Employees -->
                     <a href="{{ route('employees.index') }}"
                         class="group flex items-center justify-between px-3 py-2.5 text-sm font-medium rounded-xl transition {{ request()->routeIs('employees.*') ? 'bg-[#EAF5F1] text-[#1B4D3E] font-semibold' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/70' }}">
                         <div class="flex items-center gap-3">
@@ -82,7 +76,6 @@
                 </nav>
             </div>
 
-            <!-- General Settings Section -->
             <div>
                 <p class="px-3 mb-2 text-[11px] font-bold tracking-wider text-gray-400 uppercase">
                     Settings
@@ -106,7 +99,6 @@
         </div>
     </div>
 
-    <!-- User Profile Footer -->
     <div class="p-3 border-t border-gray-100 bg-[#FCFDFB]">
         <div class="flex items-center justify-between p-2 rounded-xl hover:bg-gray-100/70 transition">
             <div class="flex items-center gap-2.5 min-w-0">
@@ -120,7 +112,6 @@
                 </div>
             </div>
 
-            <!-- Logout Form Button -->
             <form method="POST" action="{{ route('logout') }}" class="shrink-0">
                 @csrf
                 <button type="submit" title="Log Out"

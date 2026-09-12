@@ -8,7 +8,6 @@
         }" 
         class="space-y-6"
     >
-        <!-- Hero Header Area -->
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
                 <p class="text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-1">
@@ -32,7 +31,6 @@
             </div>
         </div>
 
-        <!-- Table Container Card -->
         <div class="bg-white rounded-2xl border border-gray-200/70 shadow-2xs overflow-hidden">
             <div class="p-4 sm:p-4 border-b border-gray-100 flex flex-wrap items-center justify-between gap-4">
                 <div class="flex items-center gap-2">
@@ -135,7 +133,6 @@
                 </table>
             </div>
 
-            <!-- Pagination -->
             @if ($companies->hasPages())
                 <div class="p-4 sm:px-6 sm:py-4 border-t border-gray-100 bg-white">
                     {{ $companies->links() }}
@@ -143,7 +140,6 @@
             @endif
         </div>
 
-        <!-- Delete Confirmation Modal Component -->
         <x-delete-modal />
     </div>
 </x-app-layout>

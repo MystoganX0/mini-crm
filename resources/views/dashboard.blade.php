@@ -1,6 +1,5 @@
 <x-app-layout>
     <div class="space-y-8">
-        <!-- Hero Header Area -->
         <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
                 <p class="text-[11px] font-bold tracking-widest text-gray-400 uppercase mb-1">
@@ -12,9 +11,7 @@
             </div>
         </div>
 
-        <!-- Metric Stat Cards (Compact Cards, Natural Spacing) -->
         <div class="flex flex-wrap items-center gap-5">
-            <!-- Metric 1: Total Companies -->
             <div class="w-64 p-5 bg-white rounded-2xl border border-gray-200/70 shadow-2xs hover:shadow-subtle transition flex flex-col gap-3">
                 <div class="flex items-center justify-between text-gray-500">
                     <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Total Companies</span>
@@ -39,7 +36,6 @@
                 </div>
             </div>
 
-            <!-- Metric 2: Total Employees -->
             <div class="w-64 p-5 bg-white rounded-2xl border border-gray-200/70 shadow-2xs hover:shadow-subtle transition flex flex-col gap-3">
                 <div class="flex items-center justify-between text-gray-500">
                     <span class="text-xs font-semibold uppercase tracking-wider text-gray-400">Total Employees</span>

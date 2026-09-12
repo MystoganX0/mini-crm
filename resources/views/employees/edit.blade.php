@@ -1,6 +1,5 @@
 <x-app-layout>
     <div class="max-w-3xl mx-auto space-y-6">
-        <!-- Header -->
         <div class="flex items-center justify-between">
             <div>
                 <a href="{{ route('employees.index') }}" class="inline-flex items-center gap-1 text-xs font-semibold text-gray-500 hover:text-gray-800 mb-1 transition">
@@ -13,7 +12,6 @@
             </div>
         </div>
 
-        <!-- Form Card -->
         <div class="bg-white rounded-2xl border border-gray-200/70 p-6 sm:p-8 shadow-2xs">
             @if ($errors->any())
                 <div class="mb-6 p-4 rounded-xl bg-red-50 border border-red-200 text-red-800 text-xs">
@@ -34,7 +32,6 @@
                 @csrf
                 @method('PUT')
 
-                <!-- Name 2-col -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label for="first_name" class="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-1.5">
@@ -71,7 +68,6 @@
                     </div>
                 </div>
 
-                <!-- Company Selection -->
                 <div>
                     <label for="company_id" class="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-1.5">
                         Company <span class="text-red-500">*</span>
@@ -93,7 +89,6 @@
                     </select>
                 </div>
 
-                <!-- Email & Phone 2-col -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                         <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-gray-700 mb-1.5">
@@ -128,7 +123,6 @@
                     </div>
                 </div>
 
-                <!-- Form Footer Actions -->
                 <div class="pt-4 border-t border-gray-100 flex items-center justify-end gap-3">
                     <a
                         href="{{ route('employees.index') }}"

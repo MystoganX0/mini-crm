@@ -7,7 +7,6 @@
     aria-modal="true"
     style="display: none;"
 >
-    <!-- Backdrop Blur & Fade -->
     <div 
         x-show="showDeleteModal"
         x-transition:enter="ease-out duration-300"
@@ -21,7 +20,6 @@
     ></div>
 
     <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
-        <!-- Modal Card Container -->
         <div 
             x-show="showDeleteModal"
             x-transition:enter="ease-out duration-300"
@@ -44,7 +42,6 @@
                 </div>
             </div>
 
-            <!-- Modal Action Buttons -->
             <div class="mt-6 pt-4 border-t border-gray-100 flex items-center justify-end gap-2.5">
                 <button
                     type="button"
