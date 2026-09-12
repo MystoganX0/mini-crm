@@ -157,7 +157,7 @@ Returns detailed information about a single company, all associated employees, a
 
 #### Example cURL Request:
 ```bash
-curl -X GET "http://127.0.0.1:8000/api/companies/1" \
+curl -X GET "http://127.0.0.1:8000/api/companies/2" \
      -H "Accept: application/json"
 ```
 
@@ -165,26 +165,26 @@ curl -X GET "http://127.0.0.1:8000/api/companies/1" \
 ```json
 {
   "data": {
-    "id": 1,
-    "name": "Acme Innovations Ltd",
-    "email": "contact@acme.com",
-    "logo": "company-logos/dE0ZlYmU49s8d9sf7.png",
-    "website": "https://acme.com",
+    "id": 2,
+    "name": "FNXperts",
+    "email": "fnxperts@gmail.com",
+    "logo": "company-logos/yNL0uKwaf1XL8W1Tgdn02hen0KrntVcadYrAD372.jpg",
+    "website": "https://www.fnxperts.com/",
     "employee_count": 2,
     "employees": [
       {
-        "id": 1,
-        "first_name": "John",
-        "last_name": "Doe",
-        "email": "john.doe@acme.com",
-        "phone": "0123456789"
+        "id": 2,
+        "first_name": "Khairul",
+        "last_name": "Hakimi",
+        "email": "khairulhakimi052@gmail.com",
+        "phone": "0187858049"
       },
       {
-        "id": 2,
-        "first_name": "Jane",
-        "last_name": "Smith",
-        "email": "jane.smith@acme.com",
-        "phone": "0198765432"
+        "id": 4,
+        "first_name": "Sarah",
+        "last_name": "Jenkins",
+        "email": "sarah.jenkins@fnxperts.com",
+        "phone": "0123456789"
       }
     ]
   }
