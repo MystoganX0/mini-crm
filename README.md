@@ -1,7 +1,7 @@
 # Mini-CRM & Admin Management Panel
 
-[![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
-[![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-13.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.3%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 [![Alpine.js](https://img.shields.io/badge/Alpine.js-3.x-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=white)](https://alpinejs.dev)
 
@@ -50,8 +50,8 @@ This application serves as a centralized management platform for administrators 
 
 ## 🛠 Tech Stack
 
-- **Backend Framework:** Laravel 12.x
-- **Language:** PHP 8.2+
+- **Backend Framework:** Laravel 13.x
+- **Language:** PHP 8.3+
 - **Frontend / UI:** Blade Templates, Tailwind CSS, Alpine.js
 - **Database:** MySQL / MariaDB (or SQLite for local development)
 - **Asset Bundler:** Vite
@@ -60,7 +60,7 @@ This application serves as a centralized management platform for administrators 
 
 ## ⚙️ System Requirements
 
-- **PHP** >= 8.2 (with `pdo`, `mbstring`, `openssl`, `fileinfo`, `gd`/`imagick` extensions enabled)
+- **PHP** >= 8.3 (with `pdo`, `mbstring`, `openssl`, `fileinfo`, `gd`/`imagick` extensions enabled)
 - **Composer** >= 2.0
 - **Node.js** >= 18.x & **NPM**
 - **MySQL** >= 8.0 or **MariaDB** >= 10.4
