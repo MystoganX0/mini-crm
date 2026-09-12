@@ -1,58 +1,315 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Mini-CRM & Admin Management Panel
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+[![Laravel](https://img.shields.io/badge/Laravel-12.x-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![PHP](https://img.shields.io/badge/PHP-8.2%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-4.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Alpine.js](https://img.shields.io/badge/Alpine.js-3.x-8BC0D0?style=for-the-badge&logo=alpinedotjs&logoColor=white)](https://alpinejs.dev)
 
-## About Laravel
+A modern, robust **Mini-CRM Web Application and Admin Panel** built with Laravel for managing companies and their respective employees.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 📋 Table of Contents
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- [Overview](#-overview)
+- [Key Features & Assessment Compliance](#-key-features--assessment-compliance)
+- [Tech Stack](#-tech-stack)
+- [System Requirements](#-system-requirements)
+- [Installation & Setup](#-installation--setup)
+- [Default Admin Credentials](#-default-admin-credentials)
+- [API Documentation](#-api-documentation)
+- [Database Schema & Relationships](#-database-schema--relationships)
+- [Directory Structure](#-directory-structure)
+- [Testing & Verification](#-testing--verification)
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🌟 Overview
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+This application serves as a centralized management platform for administrators to track corporate entities and their workforce. It features complete CRUD workflows, custom form request validations, file storage integration for logos, automated pagination, and a RESTful API endpoint for seamless external integrations.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## ✅ Key Features & Assessment Compliance
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+| Requirement | Implementation Detail |
+| :--- | :--- |
+| **Authentication** | Built with Laravel Breeze starter kit; administrator authentication enabled; public registration routes safely disabled. |
+| **Database Seeder** | Pre-configured `DatabaseSeeder` automatically seeds the default administrator account. |
+| **CRUD Modules** | Full Create, Read, Update, Delete functionality for both **Companies** and **Employees**. |
+| **Companies Table** | Fields: `name` (required), `email` (nullable), `logo` (min 100×100px), `website` (nullable). |
+| **Employees Table** | Fields: `first_name` (required), `last_name` (required), `company_id` (foreign key with `cascadeOnDelete`), `email` (nullable), `phone` (nullable). |
+| **Database Migrations** | Strict database schemas with indexation and foreign key constraints. |
+| **Logo Storage** | Uploaded logos stored in `storage/app/public/company-logos` and exposed via the `public` storage disk symlink. |
+| **Validation** | Dedicated `FormRequest` classes (`StoreCompanyRequest`, `UpdateCompanyRequest`, `StoreEmployeeRequest`, `UpdateEmployeeRequest`) with dimension, MIME, and email format rules. |
+| **Pagination** | Clean pagination displaying **10 entries per page** on both Companies and Employees index pages. |
+| **Resource Controllers** | Standard Laravel RESTful resource controllers (`CompanyController`, `EmployeeController`). |
+| **API Endpoint** | `GET /api/companies/{id}` returns company details with nested employee records and an appended `employee_count` attribute. |
 
+---
+
+## 🛠 Tech Stack
+
+- **Backend Framework:** Laravel 12.x
+- **Language:** PHP 8.2+
+- **Frontend / UI:** Blade Templates, Tailwind CSS, Alpine.js
+- **Database:** MySQL / MariaDB (or SQLite for local development)
+- **Asset Bundler:** Vite
+
+---
+
+## ⚙️ System Requirements
+
+- **PHP** >= 8.2 (with `pdo`, `mbstring`, `openssl`, `fileinfo`, `gd`/`imagick` extensions enabled)
+- **Composer** >= 2.0
+- **Node.js** >= 18.x & **NPM**
+- **MySQL** >= 8.0 or **MariaDB** >= 10.4
+
+---
+
+## 🚀 Installation & Setup
+
+Follow these steps to run the project locally:
+
+### 1. Clone the Repository
 ```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
+git clone <repository-url>
+cd fnxperts-crm
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+### 2. Install PHP & Node Dependencies
+```bash
+composer install
+npm install
+```
 
-## Contributing
+### 3. Environment Configuration
+Copy the `.env.example` file to `.env`:
+```bash
+cp .env.example .env
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Configure your database settings in `.env`:
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=fnxperts_crm
+DB_USERNAME=root
+DB_PASSWORD=
+```
 
-## Code of Conduct
+### 4. Generate Application Key
+```bash
+php artisan key:generate
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 5. Run Database Migrations & Seeds
+Run the migrations along with the default database seeder:
+```bash
+php artisan migrate:fresh --seed
+```
 
-## Security Vulnerabilities
+### 6. Create Storage Symlink
+Link the `storage/app/public` directory to `public/storage` to enable public access for uploaded company logos:
+```bash
+php artisan storage:link
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 7. Compile Assets & Start the Development Server
+In one terminal, compile frontend assets:
+```bash
+npm run dev
+```
 
-## License
+In another terminal, start the Laravel local server:
+```bash
+php artisan serve
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The application will be accessible at `http://127.0.0.1:8000`.
+
+---
+
+## 🔑 Default Admin Credentials
+
+Upon running `php artisan migrate:fresh --seed`, the initial administrator account is ready for use:
+
+- **Login URL:** `http://127.0.0.1:8000/login`
+- **Email:** `admin@admin.com`
+- **Password:** `password`
+
+*(Note: Registration is disabled by design per assessment specifications)*
+
+---
+
+## 📡 API Documentation
+
+### Get Single Company with Employees & Count
+
+Returns detailed information about a single company, all associated employees, and the dynamic `employee_count`.
+
+- **Endpoint:** `GET /api/companies/{id}`
+- **Headers:**
+  ```http
+  Accept: application/json
+  ```
+
+#### Example cURL Request:
+```bash
+curl -X GET "http://127.0.0.1:8000/api/companies/1" \
+     -H "Accept: application/json"
+```
+
+#### Example Response (`200 OK`):
+```json
+{
+  "data": {
+    "id": 1,
+    "name": "Acme Innovations Ltd",
+    "email": "contact@acme.com",
+    "logo": "company-logos/dE0ZlYmU49s8d9sf7.png",
+    "website": "https://acme.com",
+    "employee_count": 2,
+    "employees": [
+      {
+        "id": 1,
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@acme.com",
+        "phone": "0123456789"
+      },
+      {
+        "id": 2,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "email": "jane.smith@acme.com",
+        "phone": "0198765432"
+      }
+    ]
+  }
+}
+```
+
+#### Postman Testing:
+1. Open Postman and create a new `GET` request.
+2. Enter the request URL: `http://127.0.0.1:8000/api/companies/2`
+3. Under the **Headers** tab, add `Accept: application/json`.
+4. Click **Send** to verify the response payload.
+
+---
+
+## 🗄 Database Schema & Relationships
+
+```mermaid
+erDiagram
+    USERS {
+        bigint id PK
+        string name
+        string email UK
+        string password
+        datetime created_at
+        datetime updated_at
+    }
+
+    COMPANIES {
+        bigint id PK
+        string name
+        string email "nullable"
+        string logo "nullable (min 100x100)"
+        string website "nullable"
+        datetime created_at
+        datetime updated_at
+    }
+
+    EMPLOYEES {
+        bigint id PK
+        string first_name
+        string last_name
+        bigint company_id FK
+        string email "nullable"
+        string phone "nullable"
+        datetime created_at
+        datetime updated_at
+    }
+
+    COMPANIES ||--o{ EMPLOYEES : "has many"
+```
+
+### Validation Rules Summary:
+
+- **Company Validation (`StoreCompanyRequest` / `UpdateCompanyRequest`):**
+  - `name`: Required, String, Max 255
+  - `email`: Nullable, Valid Email Address format
+  - `logo`: Nullable, Image (`jpg`, `jpeg`, `png`, `webp`), Minimum dimensions **100×100 px**, Max 2MB
+  - `website`: Nullable, Valid URL format
+- **Employee Validation (`StoreEmployeeRequest` / `UpdateEmployeeRequest`):**
+  - `first_name`: Required, String, Max 255
+  - `last_name`: Required, String, Max 255
+  - `company_id`: Required, Exists in `companies,id`
+  - `email`: Nullable, Valid Email Address format
+  - `phone`: Nullable, String (custom phone validation supported)
+
+---
+
+## 📁 Directory Structure
+
+```text
+fnxperts-crm/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Api/
+│   │   │   │   └── CompanyController.php      # API Endpoint Controller
+│   │   │   ├── CompanyController.php          # Web Resource Controller (Companies)
+│   │   │   ├── EmployeeController.php         # Web Resource Controller (Employees)
+│   │   │   └── DashboardController.php        # Dashboard Metrics
+│   │   ├── Requests/
+│   │   │   ├── StoreCompanyRequest.php        # Company Store Validation
+│   │   │   ├── UpdateCompanyRequest.php       # Company Update Validation
+│   │   │   ├── StoreEmployeeRequest.php       # Employee Store Validation
+│   │   │   └── UpdateEmployeeRequest.php      # Employee Update Validation
+│   │   └── Resources/
+│   │       └── CompanyResource.php            # JSON API Transformation Resource
+│   └── Models/
+│       ├── Company.php                        # Company Eloquent Model & Relations
+│       ├── Employee.php                       # Employee Eloquent Model & Relations
+│       └── User.php                           # Administrator Model
+├── database/
+│   ├── migrations/                            # Database Schema Migrations
+│   └── seeders/
+│       └── DatabaseSeeder.php                 # Default Admin Account Seeder
+├── resources/
+│   └── views/
+│       ├── companies/                         # Company CRUD Views (Index, Create, Edit, Show)
+│       ├── employees/                         # Employee CRUD Views (Index, Create, Edit, Show)
+│       ├── layouts/                           # Application Layouts & Sidebar
+│       └── components/                        # UI Components (Modals, Alerts)
+├── routes/
+│   ├── api.php                                # API Routes (/api/companies/{company})
+│   ├── auth.php                               # Auth Routes (Registration disabled)
+│   └── web.php                                # Web Resource Routes & Dashboard
+└── storage/
+    └── app/
+        └── public/
+            └── company-logos/                 # Uploaded Company Logos
+```
+
+---
+
+## 🧪 Testing & Verification
+
+### Running PHPUnit / Pest Tests (if applicable):
+```bash
+php artisan test
+```
+
+### Manual Quality Checklist:
+- [x] Admin login with `admin@admin.com` / `password`.
+- [x] Public registration is disabled and returns 404 / inaccessible.
+- [x] Create, Read, Update, Delete operations for Companies.
+- [x] Uploading logos smaller than 100×100px triggers a validation error.
+- [x] Logos are saved to `storage/app/public/company-logos` and displayed correctly.
+- [x] Create, Read, Update, Delete operations for Employees linked to Companies.
+- [x] Pagination shows 10 items per page on both Companies and Employees lists.
+- [x] `GET /api/companies/{id}` returns the company with `employee_count` and the list of employees.
