@@ -94,9 +94,9 @@ Configure your database settings in `.env`:
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=fnxperts_crm
-DB_USERNAME=root
-DB_PASSWORD=
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password
 ```
 
 ### 4. Generate Application Key
@@ -167,24 +167,24 @@ curl -X GET "http://127.0.0.1:8000/api/companies/2" \
   "data": {
     "id": 2,
     "name": "FNXperts",
-    "email": "fnxperts@gmail.com",
-    "logo": "company-logos/yNL0uKwaf1XL8W1Tgdn02hen0KrntVcadYrAD372.jpg",
-    "website": "https://www.fnxperts.com/",
+    "email": "info@example.com",
+    "logo": "company-logos/example-logo.jpg",
+    "website": "https://www.example.com/",
     "employee_count": 2,
     "employees": [
       {
-        "id": 2,
-        "first_name": "Khairul",
-        "last_name": "Hakimi",
-        "email": "khairulhakimi052@gmail.com",
-        "phone": "0187858049"
+        "id": 1,
+        "first_name": "John",
+        "last_name": "Doe",
+        "email": "john.doe@example.com",
+        "phone": "+1234567890"
       },
       {
-        "id": 4,
-        "first_name": "Sarah",
-        "last_name": "Jenkins",
-        "email": "sarah.jenkins@fnxperts.com",
-        "phone": "0123456789"
+        "id": 2,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "email": "jane.smith@example.com",
+        "phone": "+1987654321"
       }
     ]
   }
